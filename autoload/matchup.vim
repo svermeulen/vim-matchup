@@ -111,20 +111,21 @@ function! s:init_oldstyle_ops() " {{{1
     endfor
   endif
 
-  if get(g:, 'matchup_motion_enabled', 0)
-    for l:opforce in ['', 'v', 'V', '<c-v>']
-      call s:map('o', l:opforce.'%',
-            \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-%)')
-      call s:map('o', l:opforce.'g%',
-            \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-g%)')
-      call s:map('o', l:opforce.']%',
-            \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-]%)')
-      call s:map('o', l:opforce.'[%',
-            \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-[%)')
-      call s:map('o', l:opforce.'z%',
-            \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-z%)')
-    endfor
-  endif
+  " Do not shadow existing omap for V
+  " if get(g:, 'matchup_motion_enabled', 0)
+  "   for l:opforce in ['', 'v', 'V', '<c-v>']
+  "     call s:map('o', l:opforce.'%',
+  "           \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-%)')
+  "     call s:map('o', l:opforce.'g%',
+  "           \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-g%)')
+  "     call s:map('o', l:opforce.']%',
+  "           \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-]%)')
+  "     call s:map('o', l:opforce.'[%',
+  "           \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-[%)')
+  "     call s:map('o', l:opforce.'z%',
+  "           \ '<plug>(matchup-o_'.l:opforce.')<plug>(matchup-z%)')
+  "   endfor
+  " endif
 
   if get(g:, 'matchup_text_obj_enabled', 0)
     for l:opforce in ['', 'v', 'V', '<c-v>']
